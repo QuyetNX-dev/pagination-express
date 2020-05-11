@@ -1,0 +1,21 @@
+a {
+  text-decoration: none !important;
+  padding-right: 10px;
+  color: rgb(26, 25, 25);
+}
+.table tr th,
+td {
+  border-bottom: solid 1px gray;
+  padding: 4px 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin 0;
+}
+
+.wrap-label{
+  margin: auto;
+  max-width: 600px;
+}

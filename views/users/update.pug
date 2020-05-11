@@ -1,0 +1,20 @@
+extends ../layouts/common.pug
+block content
+  h5.text-info(class="mb-3") Hãy nhập nội dung vào input
+  div
+    form(action="/users/update/" + id + "/done", method="POST")
+      div
+        div.mb-3
+          p(style="margin-bottom: 5px") Name:
+          input.form-control(type="text" ,name="name", value= isUser.name)
+        div.mb-3
+          p(style="margin-bottom: 5px") Phone:
+          input.form-control(type="number" ,name="phone", value= isUser.phone)
+        div.mb-3
+          p(style="margin-bottom: 5px") Email:
+          input.form-control(type="email" ,name="email", value= isUser.email)
+        div.mb-3
+          p(style="margin-bottom: 5px") Password:
+          input.form-control(type="text" ,name="password", value= isUser.password)
+      div(style="margin-top: 16px")
+        button.btn.btn-info Sửa

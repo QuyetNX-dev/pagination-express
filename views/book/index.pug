@@ -1,0 +1,15 @@
+extends ../layouts/common.pug
+block content
+  ul.list-book 
+    each todo in todos
+      li.pb-2(style="margin:0 0 10px") 
+        div
+          div.font-weight-bold.text-info= todo.stt + '. ' + todo.title+':'
+          div= todo.description
+        div
+          a.text-info(href="book/delete/" + todo.id) &#x2718; xóa
+          a.text-info(href="book/update/" + todo.id) &#8634; sửa
+  div
+    a.btn.btn-info(href="/book/post") 
+      i.fa.fa-plus.pr-1(aria-hidden='true') 
+      span Thêm sách  

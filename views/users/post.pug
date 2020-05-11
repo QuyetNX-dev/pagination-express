@@ -1,0 +1,26 @@
+extends ../layouts/common.pug
+block content
+
+  if error
+    each item in error
+      div.alert.alert-warning= item
+  if tooLength
+    div.alert.alert-warning= tooLength
+  div
+    form(action="/users/post" method="POST")
+      div
+        div.mb-3
+          p.mb-1 Name:
+          input.form-control(type="text" name="name" value = value ? value.name : "")
+        div.mb-3
+          p.mb-1 Số điện thoại
+          input.form-control(type="number" name="phone" value = value ? value.phone : "")
+        div.mb-3
+          p.mb-1 Email
+          input.form-control(type="email" name="email" value = value ? value.email : "")
+        div.mb-3
+          p.mb-1 Password
+          input.form-control(type="text" name="password" value = value ? value.password : "")
+
+      div(style="margin-top: 16px")
+        button.btn.btn-info Thêm
