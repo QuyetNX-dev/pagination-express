@@ -1,0 +1,34 @@
+extends ../layouts/common.pug
+block content
+  h3.mb-5.text-info Tạo giao dịch
+
+  form(action="/transection/create" method="POST")
+    div(style="display: flex")
+      div(style="margin-rigth: 10px; padding-right: 10px; margin-bottom:10px") Khác hàng:
+        div(style="margin-top:10px")
+          select.form-control(name="userId")
+            each user in users
+              option(value= user.id)= user.name
+      div Thuê sách:
+        div(style="margin-top:10px")
+          select.form-control(name="bookId")
+            each book in books
+              option(value= book.id)= book.title
+    div
+      if books.length === 0 
+        if users.length === 0
+          div Chưa có sách vs khách
+          a.btn.btn-info.mr-2(href="/book") Thêm sách
+          a.btn.btn-info(href="/users") Thêm khách 
+      if books.length === 0 
+        if users.length !== 0
+          div Chưa có sách
+          a.btn.btn-info(href="/book") Thêm sách
+
+      if books.length !== 0 
+        if users.length === 0
+          div Chưa có khách
+          a.btn.btn-info(href="/users") Thêm khách 
+      if books.length !== 0 
+        if users.length !== 0
+          button.btn.btn-info Tạo mới

@@ -1,0 +1,25 @@
+html
+    head
+        link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css") 
+        link(rel='shortcut icon', type='image/png', href='https://cdn.glitch.com/5ffc7aff-b028-4f88-8fff-66b49fb6ac2b%2Ffavicon.png?v=1588496277800/favicon.png')
+        link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+        link(rel="stylesheet", href="/style/style.css")
+        style
+          include ../../style/home.css
+    body
+        div.wrap-label.pt-4
+            h3.text-info(class="text-center") #{titleHeader}
+            ul(class="nav justify-content-center pb-5")
+                li(class="nav-item")
+                    a(class="nav-link " + activeBook, href="/book" ) Kho sách
+                li(class="nav-item")
+                    a(class="nav-link " + activeUsers, href="/users" ) Khách hàng 
+                li(class="nav-item")
+                    a(class="nav-link " + activeTransection, href="/transection" ) Giao dịch
+                li(class="nav-item")
+                    if userMember
+                        a(class="nav-link disabled", href="" tabindex="-1" aria-disabled="true")=userMember.name
+                    if userAdmin
+                        a(class="nav-link disabled", href="" tabindex="-1" aria-disabled="true")=userAdmin.name
+            block header
+            block content

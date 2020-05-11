@@ -1,0 +1,14 @@
+extends ../layouts/common.pug
+block content
+  h3(class="mb-4") Hãy nhập nội dung vào input
+  div
+    form(action="/book/update/" + id + "/done", method="POST")
+      div(class="mb-3")
+        p(style="margin-bottom: 5px") Title:
+        input(class="form-control" type="text" ,name="title", value= title)
+      div
+        p(style="margin-bottom: 5px") Description:
+        //- input(class="form-control" type="text" ,name="description" , value= description)
+        textarea(class="form-control" rows="3" name="description" value= description) #{description}
+      div(style="margin-top: 16px")
+        button(class="btn btn-primary pl-5 pr-5") Sửa

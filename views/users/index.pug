@@ -1,0 +1,28 @@
+extends ../layouts/common.pug
+block content
+  ul.list-users
+    each user in users
+      li.pb-2(style="margin:0 0 10px") 
+        div
+          h6.text-info= user.stt + ': ' + user.name
+          p.pl-3.text-bold.text-secondary Phone: #{user.phone} | Email: #{user.email}
+        div
+          a(href="users/delete/" + user.id) &#x2718; xóa
+          a(href="users/update/" + user.id) &#8634; sửa
+  if(totalPages > 1)
+    nav(aria-label='Page navigation example')
+      ul.pagination.justify-content-center
+        li(class= page===1?"page-item disabled":"page-item")
+          a.page-link(href='/users?page='+ parseInt(page - 1), tabindex='-1', aria-disabled='true') Previous
+
+        each item in pagination
+          li(class= item===page?"page-item active":"page-item")
+              a.page-link(href='/users?page='+ item)=item
+
+        li(class= page===totalPages?"page-item disabled":"page-item")
+          a.page-link(href='/users?page='+ parseInt(page + 1)) Next   
+
+  div
+    a.btn.btn-info(href="/users/post") 
+      i.fa.fa-plus.pr-1(aria-hidden='true') 
+      span Thêm khách hàng

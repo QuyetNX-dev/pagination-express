@@ -1,0 +1,16 @@
+extends ../layouts/common.pug
+block content
+
+  if errors
+    each error in errors
+      div.alert.alert-warning= error
+
+  form(action="/book/post" method="POST")
+    div(class="mb-3")
+      p(style="margin-bottom: 5px") Title:
+      input(class="form-control" type="text" name="title" value= values ? values.title : "")
+    div.mb-3
+      p(style="margin-bottom: 5px") Description:
+      input(class="form-control" type="text" name="description" value= values ? values.description : "")    
+    div     
+      button(class="btn btn-primary pl-5 pr-5") Thêm
